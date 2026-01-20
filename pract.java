@@ -242,3 +242,70 @@ import java.util.*;
 //         System.out.print(flg ? "Prime Number" : "Not a Prime Number");
 //     }
 // }
+
+// public class pract{
+//     public static boolean primeNumber(int num){
+//         if (num <=1){
+//             return false;
+//         }
+//         for (int i = 2 ; i<num;i++){
+//             if(num%i==0){
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
+//     public static void main(String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         int ll = sc.nextInt();
+//         int ul = sc.nextInt();
+//         int[] intArr = new int[ul-ll-1];
+//         int ci = 0;
+//         for (int i = 0;i<=ul-ll-1;i++){
+//             if(primeNumber(i)){
+//                 intArr[ci] = i;
+//                 ci++;
+//             }
+//         }
+//     }
+// }
+
+
+// public class pract{
+//     public static void main (String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         int n = sc.nextInt();
+//         int m = sc.nextInt();
+//         int[] arrPas = new int[n];
+//         for(int i = 0 ;i<n;i++){
+//             arrPas[i] = sc.nextInt();
+//         }
+//         int busCount = 1;
+//         int busCapacity = m;
+//         for (int i =0;i<n;i++){
+//             if (arrPas[i]>busCapacity){
+//                 busCount ++;
+//                 busCapacity = m;
+//             }
+//             busCapacity-=arrPas[i];
+//         }
+//         System.out.print(busCount);
+//     }
+// }
+
+public class pract{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i = 0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        int position = sc.nextInt();
+        int newValue = sc.nextInt();
+        arr[position-1] = newValue;
+        for(int i = 0;i<n;i++){
+            System.out.print(arr[i]);
+        }
+    }
+}

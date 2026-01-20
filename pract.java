@@ -179,23 +179,66 @@ import java.util.*;
 
 //strong number 
 
-public class pract {
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int temp = n;
-        int rem;
-        int sum = 0;
-        int prd;
-        while (temp!=0){
-            rem = temp%10;
-            prd = 1;
-            for (int i = 2;i<=rem;i++){
-                prd *=i;                
-            }
-            sum+=prd;
-            temp/=10;
-        }
-        System.out.print(n==sum ? "Strong Number" : "Not a Strong Number");
-    }
-}
+// public class pract {
+//     public static void main(String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         int n = sc.nextInt();
+//         int temp = n;
+//         int rem;
+//         int sum = 0;
+//         int prd;
+//         while (temp!=0){
+//             rem = temp%10;
+//             prd = 1;
+//             for (int i = 2;i<=rem;i++){
+//                 prd *=i;                
+//             }
+//             sum+=prd;
+//             temp/=10;
+//         }
+//         System.out.print(n==sum ? "Strong Number" : "Not a Strong Number");
+//     }
+// }
+
+
+//kaprekar number
+
+// public class pract{
+//     public static void main (String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         int n = sc.nextInt();
+//         int squaredNumber = n*n;
+//         int temp = n;
+//         int c =0;
+//         while(temp!=0){
+//             c+=1;
+//             temp/=10;
+//         }
+//         int divNumb = 1;
+//         for (int i = 0;i<c;i++){
+//             divNumb*=10;
+//         }
+//         int left = squaredNumber%divNumb;
+//         int right = squaredNumber/divNumb;
+//         System.out.print((left+right) == n ? "Kaprekar Number" : "Not Kaprekar Number");
+//     }
+// }
+
+
+//Prime Number
+
+// public class pract{
+//     public static void main(String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         int n = sc.nextInt();
+//         boolean flg = true;
+
+//         for (int i = 2 ;i<n;i++){
+//             if(n%i==0){
+//                 flg = false;
+//                 break;
+//             }
+//         }
+//         System.out.print(flg ? "Prime Number" : "Not a Prime Number");
+//     }
+// }

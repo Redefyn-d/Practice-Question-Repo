@@ -270,7 +270,6 @@ import java.util.*;
 //     }
 // }
 
-
 // public class pract{
 //     public static void main (String[] args){
 //         Scanner sc = new Scanner(System.in);
@@ -293,19 +292,99 @@ import java.util.*;
 //     }
 // }
 
-public class pract{
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[] arr = new int[n];
-        for(int i = 0;i<n;i++){
-            arr[i] = sc.nextInt();
-        }
-        int position = sc.nextInt();
-        int newValue = sc.nextInt();
-        arr[position-1] = newValue;
-        for(int i = 0;i<n;i++){
-            System.out.print(arr[i]);
-        }
-    }
-}
+// public class pract{
+//     public static void main(String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         int n = sc.nextInt();
+//         int[] arr = new int[n];
+//         for(int i = 0;i<n;i++){
+//             arr[i] = sc.nextInt();
+//         }
+//         int position = sc.nextInt();
+//         int newValue = sc.nextInt();
+//         arr[position-1] = newValue;
+//         for(int i = 0;i<n;i++){
+//             System.out.println(arr[i]);
+//         }
+//     }
+// }
+
+
+//Swap if pair 
+
+// public class pract{
+//     public static void main(String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         String n = sc.next();
+//         char[] strArray = n.toCharArray();
+//         for (int i = 0; i<n.length()-1 ;i+=2){
+//             char temp = strArray[i+1];
+//             strArray[i+1] = strArray[i];
+//             strArray[i]=temp;
+//         }
+//         System.out.print(String.valueOf(strArray));
+//     }
+// }
+
+
+// public class pract{
+//     public static void main(String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         String str = sc.nextLine();
+//         String[] strArray = str.split(" ");
+//         for (int i = strArray.length-1;i>=0;i--){
+//             System.out.print(strArray[i]+" ");
+//         }
+//     }
+// }
+
+
+// public class pract{
+//     public static void main(String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         String str = sc.nextLine();
+//         boolean flg = true;
+//         for(int i = 0;i<str.length();i++){
+//             char sy = str.charAt(i);
+//             flg=true;
+//             for (int j = 0;j<str.length();j++){
+//                 if(sy == str.charAt(j) && i!=j){
+//                     flg = false;
+//                     break;
+//                 }
+//             }
+//             if(flg){
+//                 System.out.print(sy);
+//                 return;
+//             }
+//         }
+//     }
+// }
+
+
+// Anthakshari 
+
+// public class pract{
+//     public static void main(String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         String str = sc.nextLine();
+//         String[] strArray = str.split(" ");
+//         for(int i = 0;i<=strArray.length;i++){
+//             String word = strArray[i];
+//             int len = word.length()-1;
+//             String nxtWord = strArray[i+1];
+//             if(nxtWord.equals("####")){
+//                 System.out.print(word);
+//                 return;
+//             }
+//             if (word.charAt(len)==nxtWord.charAt(0)){
+//                 System.out.print(word+" ");
+//             }
+//             else{
+//                 break;
+//             }
+//         }   
+//     }
+// }
+
+

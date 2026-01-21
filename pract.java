@@ -387,4 +387,79 @@ import java.util.*;
 //     }
 // }
 
+//Enscapulation Example 
 
+// public class pract{
+//     public static void main(String[] args){
+//     class Employee{
+//         private String name = "Yonko";
+//         private int age = 20;
+//         public String getData(){
+//             return("The name and age are:"+name+" "+age);
+//         }
+//     }
+//         Scanner sc = new Scanner(System.in);
+//         Employee empObj = new Employee();
+//         System.out.print(empObj.getData());
+//     }
+// }
+
+
+//Enscapulation Example 
+
+// public class pract{
+//     public static void main(String[] args){
+//     class Employee{
+//         private String book = "Yonko";
+//         private String author = "Balak";
+//         public String getData(){
+//             return("The name and age are:"+book+" "+author);
+//         }
+//     }
+//         Scanner sc = new Scanner(System.in);
+//         Employee empObj = new Employee();
+//         System.out.print(empObj.getData());
+//     }
+// }
+
+
+// public class pract{
+//     static public class studentMark{
+//         private String name = "Yonko";
+//         private int mark;
+//         public studentMark(int recvMark){
+//             if(recvMark>=0 && recvMark<=100){
+//                 mark = recvMark;
+//             }
+//             else{
+//                 System.out.print("Get the Mark Between 0 to 100");
+//             }
+//         }   
+//         public String getData(){
+//             return("The data is: "+name+" "+mark);
+//         }
+
+//     }
+//     public static void main(String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         studentMark stdObj = new studentMark(-17);
+//         System.out.print(stdObj.getData());
+//     }
+// }
+
+public class pract{
+    static class Calculator{
+        public int add(int a ,int b){
+            return(a+b);
+        }
+        public double add(double a , double b){
+            return(a+b);
+        }
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        Calculator calObj = new Calculator();
+        System.out.println(calObj.add(1,2));
+        System.out.print(calObj.add(1.0,2.0));
+    }
+}

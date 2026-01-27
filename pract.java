@@ -447,19 +447,247 @@ import java.util.*;
 //     }
 // }
 
+
+// polymorphism Example
+
+// public class pract{
+//     static class Calculator{
+//         public int add(int a ,int b){
+//             return(a+b);
+//         }
+//         public double add(double a , double b){
+//             return(a+b);
+//         }
+//     }
+//     public static void main(String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         Calculator calObj = new Calculator();
+//         System.out.println(calObj.add(1,2));
+//         System.out.print(calObj.add(1.0,2.0));
+//     }
+// }
+
+
+
+// public class pract{
+//     static class Person{
+//         String name;
+//         void displayName(){
+//             System.out.println(name);
+//         }
+//     }
+//     static class Student extends Person{
+//         int marks;
+//         void displayMarks(){
+//             System.out.println(marks);
+//         }
+//     }
+//     public static void main(String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         Student stdObj = new Student();
+//         stdObj.name="Yonko";
+//         stdObj.marks=17;
+//         stdObj.displayMarks();
+//         stdObj.displayName();
+
+//     }
+// }
+
+
+// Abstract Example
+
+// public class pract{
+//     abstract static class Student{
+//         int age = 17;
+//     }
+//     static class People extends Student{
+//         public void getStudent(){
+//             System.out.print(age);
+//         }
+//     }
+//     public static void main(String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         People peopleObj = new People();
+//         peopleObj.getStudent();
+//     }
+// }
+
+
+// public class pract{
+//     static interface Printable{
+//         void display();
+//     }
+
+//     static class Book implements Printable{
+//         public void display(){
+//             System.out.println("Book");
+//         }
+//     }
+//     static class Newspaper implements Printable{
+//         public void display(){
+//             System.out.println("Newspaper");
+//         }
+//     }
+//     public static void main(String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         Book bookObj = new Book();
+//         Newspaper newsObj = new Newspaper();
+//         bookObj.display();
+//         newsObj.display();
+//     }
+// }
+
+
+
+// public class pract{
+//     static class Node{
+//         private int data;
+//         private Node next;
+
+//         Node(int data){
+//             this.data = data;
+//             this.next = null;
+//         }
+//     }
+//     static class LinkedList{
+//         Node Head;
+//         Node Tail;
+//         void insertAtEnd(int data){
+//             Node newNode = new Node(data);
+//             if(Head == null){
+//                 Head = newNode; 
+//                 Tail = newNode;
+//             }
+//             else{
+//                 Tail.next=newNode;
+//                 Tail = Tail.next;
+//             }
+//         }
+//         void insertAtPosition(int data,int position){
+//             Node newNode = new Node(data);
+//             Node current = Head;
+//             int i =1;
+//             if(position==1){
+//                 newNode.next=Head;
+//                 Head = newNode;
+//                 return;
+//             }
+//             while(current.next!=null && i<position-1){
+//                 if(current ==null){
+//                     System.out.print("Out of Bounds");
+//                 }
+//                 current = current.next;
+//                 i++;
+//             }
+//             newNode.next = current.next;
+//             current.next = newNode;
+//         }
+//         void displayLinkedList(){
+//             Node current = Head;
+//             while (current!=null){
+//                 System.out.println(current.data);
+//                 current = current.next;
+//             }
+//         }
+//     }
+//     public static void main(String[] args){
+//         Scanner sc = new Scanner(System.in);
+//         LinkedList ll = new LinkedList();
+//         ll.insertAtEnd(2);
+//         ll.insertAtEnd(3);
+//         ll.insertAtEnd(4);
+//         ll.insertAtPosition(17,2);
+//         ll.displayLinkedList();
+//     }
+// }
+
+
+// public class pract{
+//     public static void main(String[] args){
+//         class Node{
+//             private int data;
+//             private Node next;
+//             Node(int data){
+//                 this.data = data;
+//                 this.next = null;
+//             }
+//         }
+//         class LinkedList{
+//         Node Head;
+//         void insertAtEnd(int data){
+//             Node current = new Node(data);
+//             if(Head == null){
+//                 Head = current;
+//             }
+//             else{
+//                 Node pointer = Head;
+//                 while(pointer.next!=null){
+//                     pointer = pointer.next;
+//                 }
+//                 pointer.next=current;
+//             }
+//         }
+//         int findMid(){
+//             int mid = 1;
+//             Node current = Head;
+//             while(current.next!=null){
+//                 current = current.next;
+//                 mid+=1;
+//             }
+//             return mid/2;
+//         }
+//     }
+//     Scanner sc = new Scanner(System.in);
+//     LinkedList list = new LinkedList();
+//     list.insertAtEnd(2);
+//     list.insertAtEnd(3);
+//     list.insertAtEnd(4);
+//     System.out.print(list.findMid());
+//     }
+// }
+
 public class pract{
-    static class Calculator{
-        public int add(int a ,int b){
-            return(a+b);
+    static class Node{
+        private int data;
+        private Node next;
+        Node(int data){
+            this.data = data;
+            this.next = null;
         }
-        public double add(double a , double b){
-            return(a+b);
+    }
+    static class LinkedList{
+        Node Head;
+        void insertAtEnd(int data){
+            Node current = new Node(data);
+            if(Head==null){
+                Head = current;
+            }
+            else{
+                Node pointer = Head;
+                while(pointer.next!=null){
+                    pointer = pointer.next;
+                }
+                pointer.next = current;
+            }
+        }
+        int countEven(){
+            int evenCount=0;
+            Node current = Head;
+            while(current.next!=null){
+                if(current.data%2==0){
+                    evenCount++;
+                }
+                current = current.next;
+            }
+            return evenCount+1;
         }
     }
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        Calculator calObj = new Calculator();
-        System.out.println(calObj.add(1,2));
-        System.out.print(calObj.add(1.0,2.0));
+        LinkedList ll = new LinkedList();
+        ll.insertAtEnd(2);
+        ll.insertAtEnd(2);
+        ll.insertAtEnd(2);
+        ll.insertAtEnd(2);
+        System.out.print(ll.countEven());
     }
 }

@@ -752,72 +752,203 @@ import java.util.*;
 
 
 
-public class pract{
-    static class Node{
-        private int data;
-        private Node next;
-        private Node prev;
-        Node(int data){
-            this.data = data;
-            this.next = null;
-            this.prev = null;
-        }
-    }
-    static class DoubleLinkedList{
-        Node Head;
-        Node Tail;
-        void insertAtEnd(int data){
-            Node current = new Node(data);
-            if(Head==null){
-                Head = current;
-                Tail = current;
-            }
-            else{
-                Tail.next = current;
-                current.prev = Tail;
-                Tail = current;
-            }
-        }
-        void deleteAtEnd(){
-            if(Head == null){
-                System.out.print("Empty");
-            }
-            Tail = Tail.prev;
-            Tail.next = null;
-        }
-        void deleteAtPosition(int position){
-            int c = 0;
-            Node current = Head;
-            while(current!=null){
-                c+=1;
-            }
-            if(current == Head){
-                Head = current.next;
-                if(Head !=null){
-                    Head.prev = null;
-                }
-                else{
-                    Tail = null;
-                }
-                return;
-            }
-            else if (current == Tail){
-                Tail = Tail.prev;
-                Tail.next =null;
-                return;
-            }
-            current.prev.next = current.next;
-            current.next.prev = current.prev;
+// public class pract{
+//     static class Node{
+//         private int data;
+//         private Node next;
+//         private Node prev;
+//         Node(int data){
+//             this.data = data;
+//             this.next = null;
+//             this.prev = null;
+//         }
+//     }
+//     static class DoubleLinkedList{
+//         Node Head;
+//         Node Tail;
+//         void insertAtEnd(int data){
+//             Node current = new Node(data);
+//             if(Head==null){
+//                 Head = current;
+//                 Tail = current;
+//             }
+//             else{
+//                 Tail.next = current;
+//                 current.prev = Tail;
+//                 Tail = current;
+//             }
+//         }
+//         void deleteAtEnd(){
+//             if(Head == null){
+//                 System.out.print("Empty");
+//             }
+//             Tail = Tail.prev;
+//             Tail.next = null;
+//         }
+//         void deleteAtPosition(int position){
+//             int c = 0;
+//             Node current = Head;
+//             while(current!=null){
+//                 c+=1;
+//             }
+//             if(current == Head){
+//                 Head = current.next;
+//                 if(Head !=null){
+//                     Head.prev = null;
+//                 }
+//                 else{
+//                     Tail = null;
+//                 }
+//                 return;
+//             }
+//             else if (current == Tail){
+//                 Tail = Tail.prev;
+//                 Tail.next =null;
+//                 return;
+//             }
+//             current.prev.next = current.next;
+//             current.next.prev = current.prev;
 
-            current.next =null;
-            current.prev =null;
+//             current.next =null;
+//             current.prev =null;
+//         }
+//     }
+//     public static void main(String[] args){
+//         DoubleLinkedList ll = new DoubleLinkedList();
+//         ll.insertAtEnd(2);
+//         ll.insertAtEnd(2);
+//         ll.insertAtEnd(2);
+//         ll.insertAtEnd(2);
+//     }
+// }
+
+
+
+// public class pract{
+//     static class Tree{
+//         private int data;
+//         private Tree left , right;
+//         Tree(int data){
+//             this.data = data;
+//             this.left = null;
+//             this.right = null;
+//         }
+//     }
+//     static class BinaryTree{
+//         Tree root;
+//         public BinaryTree(){
+//             root = null;
+//         }
+//         public void add(int data){
+//             this.root = insert(data , this.root);
+//         }
+//         Tree insert(int data,Tree root){
+//             if(root == null){
+//                 return new Tree(data);
+//             }
+//             if(data<root.data){
+//                 root.left=insert(data,root.left);
+//             }
+//             else if(data>root.data){
+//                 root.right=insert(data,root.right);
+//             }
+//             return root;
+//         }
+//         void inOrderTraversal(Tree node){
+//             if(node!=null){
+//                 inOrderTraversal(node.left);
+//                 System.out.print(node.data+" ");
+//                 inOrderTraversal(node.right);
+//             }
+//         } 
+//         // void inOrderTraversal(){
+//         //     inOrderTraversal(root);
+//         // } 
+
+//     } 
+//     public static void main(String[] args){
+//         BinaryTree btObj = new BinaryTree();
+//         btObj.add(2);
+//         btObj.add(0);
+//         btObj.add(1);
+//         btObj.add(5);
+//         btObj.inOrderTraversal(btObj.root);
+//     }
+// }
+
+
+import java.util.Scanner;
+import java.util.ArrayList;
+class Main{
+    static boolean isArmstrong(int value){
+        int sum = 0;
+        int temp = value;
+        int count =0;
+        while(temp!=0){
+            count++;
+            temp/=10;
+        }
+        temp =value;
+        while(temp!=0){
+            sum = sum + (int)Math.pow((temp%10),count);
+            temp/=10;
+        }
+        if(sum==value){
+            return true;
+        }
+        else{
+            return false;
         }
     }
-    public static void main(String[] args){
-        DoubleLinkedList ll = new DoubleLinkedList();
-        ll.insertAtEnd(2);
-        ll.insertAtEnd(2);
-        ll.insertAtEnd(2);
-        ll.insertAtEnd(2);
+    public static void main(String []args){
+        
+        Scanner sc = new Scanner(System.in);
+        int n1 = sc.nextInt();
+        int n2 = sc.nextInt();
+        if(n1==0 || n2 ==0){
+            System.out.print("Invalid Inputs");
+            return;
+        }
+        if(n1<0){
+            n1=n1*-1;
+        }
+        if(n2<0){
+            n2=n2*-1;
+        }
+        int[] arr = new int[10];
+        int index = 0;
+        if(n2<n1){
+            n1=n1+n2;
+            n2=n1-n2;
+            n1=n1-n2;
+        }
+        for(int i = n1;i<n2;i++){
+            boolean res = isArmstrong(i);
+            if(res){
+                arr[index]=i;
+                index++;
+            }
+        }
+        ArrayList<Integer> intArr = new ArrayList<Integer>();
+        for(int i =1;i<arr.length;i+=2){
+            if(arr[i]!=0){
+                intArr.add(arr[i]);
+            }
+        }
+        if(intArr.size()==0){
+            System.out.print("No Armstrong Numbers Between Given Values.");
+            return;
+        }
+        System.out.print("Alternative Armstrong Numbers between the Given Values is");
+        int sin =0;
+        for(int i : intArr){
+            System.out.print(" "+i);
+            if(sin!=intArr.size()-1){
+                System.out.print(",");
+            }else{
+                System.out.print(".");
+            }
+            sin++;
+        }
     }
 }

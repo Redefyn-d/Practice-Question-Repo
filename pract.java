@@ -646,48 +646,178 @@ import java.util.*;
 //     }
 // }
 
+
+
+// public class pract{
+//     static class Node{
+//         private int data;
+//         private Node next;
+//         Node(int data){
+//             this.data = data;
+//             this.next = null;
+//         }
+//     }
+//     static class LinkedList{
+//         Node Head;
+//         void insertAtEnd(int data){
+//             Node current = new Node(data);
+//             if(Head==null){
+//                 Head = current;
+//             }
+//             else{
+//                 Node pointer = Head;
+//                 while(pointer.next!=null){
+//                     pointer = pointer.next;
+//                 }
+//                 pointer.next = current;
+//             }
+//         }
+//         int countEven(){
+//             int evenCount=0;
+//             Node current = Head;
+//             while(current.next!=null){
+//                 if(current.data%2==0){
+//                     evenCount++;
+//                 }
+//                 current = current.next;
+//             }
+//             return evenCount+1;
+//         }
+//     }
+//     public static void main(String[] args){
+//         LinkedList ll = new LinkedList();
+//         ll.insertAtEnd(2);
+//         ll.insertAtEnd(2);
+//         ll.insertAtEnd(2);
+//         ll.insertAtEnd(2);
+//         System.out.print(ll.countEven());
+//     }
+// }
+
+
+// public class pract{
+//     static class Stack{
+//         private int data;
+//         private Stack next;
+//         Stack(int data){
+//             this.data = data;
+//             this.next = null;
+//         }
+//     }
+//     static class stk{
+//         Stack top = null;
+//         int size = 0;
+//         void push(int data){
+//             Stack newStk = new Stack(data);
+//             newStk.next = top;
+//             top = newStk;
+//             size++;
+//         }
+//         void pop(){ 
+//             if(top==null){
+//                 System.out.print("Underflow");
+//                 return;
+//             }
+//             System.out.print(top.data);
+//             top = top.next;
+//             size--;
+//         }
+//         void top(){
+//             if(top==null){
+//                 System.out.print("Empty");
+//                 return;
+//             }
+//             System.out.print(top.data);
+//         }
+//         void display(){
+//             Stack current = top;
+//             while(current!=null){
+//                 System.out.println(current.data);
+//                 current = current.next;
+//             }
+//         }
+//     }
+//     public static void main(String[] args){
+//         stk stkObj = new stk();
+//         stkObj.push(2);
+//         stkObj.push(2);
+//         stkObj.push(2);
+//         stkObj.push(2);
+//         stkObj.push(2);
+//         stkObj.pop();
+//         stkObj.pop();
+//         stkObj.display();
+//     }
+// }
+
+
+
 public class pract{
     static class Node{
         private int data;
         private Node next;
+        private Node prev;
         Node(int data){
             this.data = data;
             this.next = null;
+            this.prev = null;
         }
     }
-    static class LinkedList{
+    static class DoubleLinkedList{
         Node Head;
+        Node Tail;
         void insertAtEnd(int data){
             Node current = new Node(data);
             if(Head==null){
                 Head = current;
+                Tail = current;
             }
             else{
-                Node pointer = Head;
-                while(pointer.next!=null){
-                    pointer = pointer.next;
-                }
-                pointer.next = current;
+                Tail.next = current;
+                current.prev = Tail;
+                Tail = current;
             }
         }
-        int countEven(){
-            int evenCount=0;
-            Node current = Head;
-            while(current.next!=null){
-                if(current.data%2==0){
-                    evenCount++;
-                }
-                current = current.next;
+        void deleteAtEnd(){
+            if(Head == null){
+                System.out.print("Empty");
             }
-            return evenCount+1;
+            Tail = Tail.prev;
+            Tail.next = null;
+        }
+        void deleteAtPosition(int position){
+            int c = 0;
+            Node current = Head;
+            while(current!=null){
+                c+=1;
+            }
+            if(current == Head){
+                Head = current.next;
+                if(Head !=null){
+                    Head.prev = null;
+                }
+                else{
+                    Tail = null;
+                }
+                return;
+            }
+            else if (current == Tail){
+                Tail = Tail.prev;
+                Tail.next =null;
+                return;
+            }
+            current.prev.next = current.next;
+            current.next.prev = current.prev;
+
+            current.next =null;
+            current.prev =null;
         }
     }
     public static void main(String[] args){
-        LinkedList ll = new LinkedList();
+        DoubleLinkedList ll = new DoubleLinkedList();
         ll.insertAtEnd(2);
         ll.insertAtEnd(2);
         ll.insertAtEnd(2);
         ll.insertAtEnd(2);
-        System.out.print(ll.countEven());
     }
 }

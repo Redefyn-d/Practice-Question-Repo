@@ -877,78 +877,298 @@ import java.util.*;
 // }
 
 
-import java.util.Scanner;
-import java.util.ArrayList;
-class Main{
-    static boolean isArmstrong(int value){
-        int sum = 0;
-        int temp = value;
-        int count =0;
-        while(temp!=0){
-            count++;
-            temp/=10;
-        }
-        temp =value;
-        while(temp!=0){
-            sum = sum + (int)Math.pow((temp%10),count);
-            temp/=10;
-        }
-        if(sum==value){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-    public static void main(String []args){
+// import java.util.Scanner;
+// import java.util.ArrayList;
+// class Main{
+//     static boolean isArmstrong(int value){
+//         int sum = 0;
+//         int temp = value;
+//         int count =0;
+//         while(temp!=0){
+//             count++;
+//             temp/=10;
+//         }
+//         temp =value;
+//         while(temp!=0){
+//             sum = sum + (int)Math.pow((temp%10),count);
+//             temp/=10;
+//         }
+//         if(sum==value){
+//             return true;
+//         }
+//         else{
+//             return false;
+//         }
+//     }
+//     public static void main(String []args){
         
+//         Scanner sc = new Scanner(System.in);
+//         int n1 = sc.nextInt();
+//         int n2 = sc.nextInt();
+//         if(n1==0 || n2 ==0){
+//             System.out.print("Invalid Inputs");
+//             return;
+//         }
+//         if(n1<0){
+//             n1=n1*-1;
+//         }
+//         if(n2<0){
+//             n2=n2*-1;
+//         }
+//         int[] arr = new int[10];
+//         int index = 0;
+//         if(n2<n1){
+//             n1=n1+n2;
+//             n2=n1-n2;
+//             n1=n1-n2;
+//         }
+//         for(int i = n1;i<n2;i++){
+//             boolean res = isArmstrong(i);
+//             if(res){
+//                 arr[index]=i;
+//                 index++;
+//             }
+//         }
+//         ArrayList<Integer> intArr = new ArrayList<Integer>();
+//         for(int i =1;i<arr.length;i+=2){
+//             if(arr[i]!=0){
+//                 intArr.add(arr[i]);
+//             }
+//         }
+//         if(intArr.size()==0){
+//             System.out.print("No Armstrong Numbers Between Given Values.");
+//             return;
+//         }
+//         System.out.print("Alternative Armstrong Numbers between the Given Values is");
+//         int sin =0;
+//         for(int i : intArr){
+//             System.out.print(" "+i);
+//             if(sin!=intArr.size()-1){
+//                 System.out.print(",");
+//             }else{
+//                 System.out.print(".");
+//             }
+//             sin++;
+//         }
+//     }
+// } 
+
+
+// import java.util.*;
+
+// public class BFS {
+//     static ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
+
+//     static void addEdge(int src, int dest) {
+//         graph.get(src).add(dest);
+//     }
+
+//     static void bfs(int start, int v) {
+//         boolean[] visited = new boolean[v];
+//         Queue<Integer> q = new LinkedList<>();
+
+//         visited[start] = true;
+//         q.add(start);
+
+//         System.out.print("BFS: ");
+
+//         while (!q.isEmpty()) {
+//             int curr = q.poll();
+//             System.out.print(curr + " ");
+
+//             for (int i : graph.get(curr)) {
+//                 if (!visited[i]) {
+//                     visited[i] = true;
+//                     q.add(i);
+//                 }
+//             }
+//         }
+//     }
+
+//     public static void main(String[] args) {
+//         int v = 4;
+
+//         for (int i = 0; i < v; i++) {
+//             graph.add(new ArrayList<>());
+//         }
+
+//         addEdge(0, 1);
+//         addEdge(0, 2);
+//         addEdge(1, 3);
+
+//         bfs(0, v);
+//     }
+// }
+
+
+// import java.util.*;
+
+// public class DFS {
+//     static ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
+
+//     static void addEdge(int src, int dest) {    
+//         graph.get(src).add(dest);
+//     }
+
+//     static void dfs(int start, int v) {
+//         boolean[] visited = new boolean[v];
+//         Stack<Integer> stack = new Stack<>();
+
+//         stack.push(start);
+
+//         System.out.print("DFS: ");
+
+//         while (!stack.isEmpty()) {
+//             int curr = stack.pop();
+
+//             if (!visited[curr]) {
+//                 visited[curr] = true;
+//                 System.out.print(curr + " ");
+
+//                 for (int i : graph.get(curr)) {
+//                     if (!visited[i]) {
+//                         stack.push(i);
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+//     public static void main(String[] args) {
+//         int v = 4;
+
+//         for (int i = 0; i < v; i++) {
+//             graph.add(new ArrayList<>());
+//         }
+
+//         addEdge(0, 1);
+//         addEdge(0, 2);
+//         addEdge(1, 3);
+
+//         dfs(0, v);
+//     }
+// }
+// class GraphMatrix {
+//     public static void main(String[] args) {
+//         int vertices = 4;
+//         int[][] graph = new int[vertices][vertices];
+
+//         // Adding edges
+//         graph[0][1] = 1; // A-B
+//         graph[1][0] = 1;
+
+//         graph[0][2] = 1; // A-C
+//         graph[2][0] = 1;
+
+//         graph[1][3] = 1; // B-D
+//         graph[3][1] = 1;
+
+//         graph[2][3] = 1; // C-D
+//         graph[3][2] = 1;
+
+//         // Printing matrix
+//         for (int i = 0; i < vertices; i++) {
+//             for (int j = 0; j < vertices; j++) {
+//                 System.out.print(graph[i][j] + " ");
+//             }
+//             System.out.println();
+//         }
+//     }
+// }
+// class GraphList {
+
+//     static int[][] adjList;
+//     static int[] size;
+
+//     public static void main(String[] args) {
+
+//         int vertices = 4;
+//         int maxEdges = 2; // each node max connections
+
+//         adjList = new int[vertices][maxEdges];
+//         size = new int[vertices];
+
+//         addEdge(0, 1); // A-B
+//         addEdge(0, 2); // A-C
+//         addEdge(1, 3); // B-D
+//         addEdge(2, 3); // C-D
+
+//         // Print adjacency list
+//         for (int i = 0; i < vertices; i++) {
+//             System.out.print(i + " -> ");
+//             for (int j = 0; j < size[i]; j++) {
+//                 System.out.print(adjList[i][j] + " ");
+//             }
+//             System.out.println();
+//         }
+//     }
+
+//     static void addEdge(int u, int v) {
+//         adjList[u][size[u]++] = v;
+//         adjList[v][size[v]++] = u; // undirected
+//     }
+// }
+
+
+import java.util.*;
+class Main{   
+    static boolean Palindrome(int n){
+        int temp = n;
+        int rev = 0;
+            while(temp!=0){
+                rev = (rev*10)+(temp%10);
+                temp/=10;
+            }
+            if(rev==n){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    public static void main(String []args)
+    {
         Scanner sc = new Scanner(System.in);
         int n1 = sc.nextInt();
         int n2 = sc.nextInt();
-        if(n1==0 || n2 ==0){
+        if(n1==0 || n2 == 0){
             System.out.print("Invalid Inputs");
             return;
         }
         if(n1<0){
-            n1=n1*-1;
+            n1*=-1;
         }
         if(n2<0){
-            n2=n2*-1;
+            n2*=-1;
         }
-        int[] arr = new int[10];
-        int index = 0;
         if(n2<n1){
             n1=n1+n2;
             n2=n1-n2;
             n1=n1-n2;
         }
-        for(int i = n1;i<n2;i++){
-            boolean res = isArmstrong(i);
+        
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i = n1+1;i<=n2;i++){
+            boolean res = Palindrome(i);
             if(res){
-                arr[index]=i;
-                index++;
+                list.add(i);
             }
         }
-        ArrayList<Integer> intArr = new ArrayList<Integer>();
-        for(int i =1;i<arr.length;i+=2){
-            if(arr[i]!=0){
-                intArr.add(arr[i]);
-            }
-        }
-        if(intArr.size()==0){
-            System.out.print("No Armstrong Numbers Between Given Values.");
+        if(list.size()==0){
+            System.out.print("No Palindrome Values");
             return;
         }
-        System.out.print("Alternative Armstrong Numbers between the Given Values is");
-        int sin =0;
-        for(int i : intArr){
-            System.out.print(" "+i);
-            if(sin!=intArr.size()-1){
-                System.out.print(",");
-            }else{
-                System.out.print(".");
+        System.out.print("Sum of Alternative Palindrome Numbers between the "+n1 + " and " + n2 + " is");
+        int sum = 0;
+        for(int i=0;i<list.size();i+=2){
+            sum+=list.get(i);
+            System.out.print(" "+list.get(i));
+            int endValue=(list.size()%2==0)?list.size()-2:list.size()-1;
+            if(i!=endValue){
+                System.out.print(" +");
             }
-            sin++;
+            
         }
+        System.out.print(" = "+sum+".");
     }
 }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<style>
+body{
+    background-color:burlywood;
+}
+.mainBox{
+    background-color: brown;
+    height: 500px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+    flex-direction: column;
+}
+.clockContainer{
+    font-size: 100px;
+}
+.toggleButton{
+    justify-content: center;
+    align-items: center;
+}
+button{
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color:cadetblue;
+    margin-top: 30px;
+}
+button:hover{
+    cursor: pointer;
+}
+</style>
+<body>
+    <div class="mainBox">
+        <div class="clockContainer">
+            <span class="Time">00:00:00</span>
+            <span class="ampm"></span>
+        </div>
+        <button onclick="toggleFormat()">12/24 Toggle Switch</button>
+    </div>
+
+    <script>
+        let hour24 = true;
+        function pad(n){
+            return String(n).padStart(2,'0');
+        }
+        function updateClock(){
+            const now = new Date();
+            let hour = now.getHours();
+            let min = now.getMinutes();
+            let sec = now.getSeconds();
+            if(hour24){
+                document.querySelector('.Time').innerHTML=`${pad(hour)}:${pad(min)}:${pad(sec)}`;
+                document.querySelector('.ampm').innerHTML = '';
+            }
+            else{
+                document.querySelector('.ampm').innerHTML = hour >=12 ? 'PM' : 'AM';
+                hour = hour % 12||12;
+                document.querySelector('.Time').innerHTML=`${pad(hour)}:${pad(min)}:${pad(sec)}`;
+            }
+        }
+        function toggleFormat(){
+            hour24 = !hour24;
+            updateClock();
+        }
+        setInterval(updateClock,1000);
+        updateClock();
+    </script>
+</body>
+</html>

@@ -1001,7 +1001,6 @@ import java.util.*;
 // }
 
 
-// import java.util.*;
 
 // public class DFS {
 //     static ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
@@ -1110,65 +1109,88 @@ import java.util.*;
 // }
 
 
-import java.util.*;
-class Main{   
-    static boolean Palindrome(int n){
-        int temp = n;
-        int rev = 0;
-            while(temp!=0){
-                rev = (rev*10)+(temp%10);
-                temp/=10;
-            }
-            if(rev==n){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-    public static void main(String []args)
-    {
-        Scanner sc = new Scanner(System.in);
-        int n1 = sc.nextInt();
-        int n2 = sc.nextInt();
-        if(n1==0 || n2 == 0){
-            System.out.print("Invalid Inputs");
-            return;
-        }
-        if(n1<0){
-            n1*=-1;
-        }
-        if(n2<0){
-            n2*=-1;
-        }
-        if(n2<n1){
-            n1=n1+n2;
-            n2=n1-n2;
-            n1=n1-n2;
-        }
-        
-        ArrayList<Integer> list = new ArrayList<>();
-        for(int i = n1+1;i<=n2;i++){
-            boolean res = Palindrome(i);
-            if(res){
-                list.add(i);
-            }
-        }
-        if(list.size()==0){
-            System.out.print("No Palindrome Values");
-            return;
-        }
-        System.out.print("Sum of Alternative Palindrome Numbers between the "+n1 + " and " + n2 + " is");
-        int sum = 0;
-        for(int i=0;i<list.size();i+=2){
-            sum+=list.get(i);
-            System.out.print(" "+list.get(i));
-            int endValue=(list.size()%2==0)?list.size()-2:list.size()-1;
-            if(i!=endValue){
-                System.out.print(" +");
-            }
+// class Main{   
+//     static boolean Palindrome(int n){
+//         int temp = n;
+//         int rev = 0;
+//             while(temp!=0){
+//                 rev = (rev*10)+(temp%10);
+//                 temp/=10;
+//             }
+//             if(rev==n){
+//                 return true;
+//             }
+//             else{
+//                 return false;
+//             }
+//         }
+//     public static void main(String []args)
+//     {
+//         Scanner sc = new Scanner(System.in);
+//         int n1 = sc.nextInt();
+//         int n2 = sc.nextInt();
+//         if(n1==0 || n2 == 0){
+//             System.out.print("Invalid Inputs");
+//             return;
+//         }
+//         if(n1<0){
+//             n1*=-1;
+//         }
+//         if(n2<0){
+//             n2*=-1;
+//         }
+//         if(n2<n1){
+//             n1=n1+n2;
+//             n2=n1-n2;
+//             n1=n1-n2;
+//         }
+//         ArrayList<Integer> list = new ArrayList<>();
+//         for(int i = n1+1;i<=n2;i++){
+//             boolean res = Palindrome(i);
+//             if(res){
+//                 list.add(i);
+//             }
+//         }
+//         if(list.size()==0){
+//             System.out.print("No Palindrome Values");
+//             return;
+//         }
+//         System.out.print("Sum of Alternative Palindrome Numbers between the "+n1 + " and " + n2 + " is");
+//         int sum = 0;
+//         for(int i=0;i<list.size();i+=2){
+//             sum+=list.get(i);
+//             System.out.print(" "+list.get(i));
+//             int endValue=(list.size()%2==0)?list.size()-2:list.size()-1;
+//             if(i!=endValue){
+//                 System.out.print(" +");
+//             }
             
-        }
-        System.out.print(" = "+sum+".");
-    }
-}
+//         }
+//         System.out.print(" = "+sum+".");
+//     }
+// }
+
+
+// public class pract{
+//     static Map <Integer,ArrayList<Integer>> adj = new HashMap<>();
+        
+//     public static void main(String[] args){
+//         addEdge(0,1);
+//         addEdge(0,2);
+//         addEdge(1,3);
+//         addEdge(2,3);
+
+//         for(Map.Entry<Integer,ArrayList<Integer>> element: adj.entrySet()){
+//             System.out.print(element.getKey()+"->"+element.getValue());
+//             System.out.println();
+//         }
+//     }
+//     static void addEdge(int v,int u){
+//         adj.putIfAbsent(v,new ArrayList<>());
+//         adj.get(v).add(u);
+//         adj.putIfAbsent(u,new ArrayList<>());
+//         adj.get(u).add(v);
+//     }
+// }
+
+

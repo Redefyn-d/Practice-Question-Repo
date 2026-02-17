@@ -1,0 +1,35 @@
+.socialLink{
+    text-decoration: none;
+    font-size: 20px;
+    padding-top:30px;
+    color: black;
+}
+.heroContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.educationTable{
+    border:1px solid black;
+    height: 80px;
+    border-collapse: collapse;
+    border-spacing: 20px;
+    table-layout: fixed;
+}
+
+td,th{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.nameContainer{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.nameDisplay{
+    font-size: 2rem;
+}

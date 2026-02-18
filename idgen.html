@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Generator</title>
+    <link rel="stylesheet" href="idgen.css">
+</head>
+<body>
+    <div class="container">
+        <form class="idForm">
+            <h2>Enter Details</h2>
+            <label for="Name">
+                Name: <input type="text" class="nameInput" placeholder="LIN">
+            </label>
+            <label for="registerNo">
+                Register Number: <input class="regInput"  type="number" placeholder="19">
+            </label>
+            <label for="mobileNo">
+                Mobile Number: <input type="number" class="numInput" placeholder="ex:9999999999">
+            </label>
+            <label for="bloodGroup">
+                Blood Group: <input type="text" class="bgInput" placeholder="G+">
+            </label>
+            <label for="address">
+                Address: <input type="text" class="addrInput" placeholder="Enter your address">
+            </label>
+            <label for="pp">
+                Upload an Image: <input type="file" class="imgInput">
+            </label>
+        </form>
+        <div class="cardDisplay">
+            <div class="cardHeader">
+            </div>
+            <img src="" alt="Upload Image" class="imgDisplay">
+            <div class="cardBody">
+                <p class="nameDisplay"><strong>Name:</strong> </p>
+                <p class="regDisplay"><strong>Reg No:</strong> </p>
+                <p class="numDisplay"><strong>Mobile No:</strong> </p>
+                <p class="bgDisplay"><strong>Blood Group:</strong> </p>
+                <p class="addrDisplay"><strong>Address:</strong> </p>
+            </div>
+            <div class="cardFooter">
+                <div class="collegeLogo">🎓</div>
+                <p class="collegeName"><strong>INSTITUTE OF TECHNOLOGY</strong></p>
+                <p class="collegeTagline">Excellence in Education</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        console.log(document.querySelector('.imgInput'));
+        function updateName(){
+           const nameValue = document.querySelector('.nameInput').value;
+           document.querySelector('.nameDisplay').innerHTML = '<strong>Name:</strong> ' + nameValue;
+        }
+        function updateNumber(){
+           const numValue = document.querySelector('.numInput').value;
+           document.querySelector('.numDisplay').innerHTML = '<strong>Mobile No:</strong> ' + numValue;
+        }
+        function updateReg(){
+           const regValue = document.querySelector('.regInput').value;
+           document.querySelector('.regDisplay').innerHTML = '<strong>Reg No:</strong> ' + regValue;
+        }
+        function updateBg(){
+           const bgValue = document.querySelector('.bgInput').value;
+           document.querySelector('.bgDisplay').innerHTML = '<strong>Blood Group:</strong> ' + bgValue;
+        }
+        function updateAddr(){
+           const addrValue = document.querySelector('.addrInput').value;
+           document.querySelector('.addrDisplay').innerHTML = '<strong>Address:</strong> ' + addrValue;
+        }
+        function updateImage(event){
+            const [file] = event.target.files;
+            if(file){
+                document.querySelector('.imgDisplay').src = URL.createObjectURL(file);
+            }
+        }
+        document.querySelector('.nameInput').addEventListener('input', updateName);
+        document.querySelector('.numInput').addEventListener('input', updateNumber);
+        document.querySelector('.regInput').addEventListener('input', updateReg);
+        document.querySelector('.bgInput').addEventListener('input', updateBg);
+        document.querySelector('.addrInput').addEventListener('input', updateAddr);
+        document.querySelector('.imgInput').addEventListener('change', updateImage);
+    </script>
+</body>
+</html>

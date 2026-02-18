@@ -7,13 +7,18 @@
 </head>
 <body>
     <h1>Click Counter</h1>
-    <button onclick="handleClick()">Increement</button>
+    <button class="increment-btn">Increement</button>
     <p class="valueCount">0</p>
     <script>
         let count = 0;
         const handleClick = () =>{
             document.querySelector('.valueCount').innerHTML = count+=1;
         }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const incrementBtn = document.querySelector('.increment-btn');
+            incrementBtn.addEventListener('click', handleClick);
+        });
     </script>
 </body>
 </html>
